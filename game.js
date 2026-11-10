@@ -1372,3 +1372,11 @@ function loop(now) {
   requestAnimationFrame(loop);
 }
 requestAnimationFrame(loop);
+// Разворачивает игру на весь экран при первом тапе по экрану
+document.addEventListener('click', () => {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch((err) => {
+            console.log(`Ошибка перехода в полноэкранный режим: ${err.message}`);
+        });
+    }
+});
